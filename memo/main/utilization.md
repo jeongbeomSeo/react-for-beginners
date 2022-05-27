@@ -1,5 +1,18 @@
 # Utilization
 
+- [Utilization](#utilization)
+  - [1. Create React App](#1-create-react-app)
+  - [2. How to use CSS](#2-how-to-use-css)
+  - [3. useEffect()](#3-useeffect)
+    - [3.1 useEffect - Cleanup function](#31-useeffect---cleanup-function)
+  - [4. How to utilize React](#4-how-to-utilize-react)
+    - [4.1 To Do List](#41-to-do-list)
+    - [4.2 Cryptocurrency Service](#42-cryptocurrency-service)
+    - [4.3 Movie Service](#43-movie-service)
+    - [4.3.1 Divided and Conquer](#431-divided-and-conquer)
+    - [4.3.2 React Router](#432-react-router)
+      - [4.3.3 Error Correction](#433-error-correction)
+
 ## 1. Create React App
 
 먼저 Create React App을 보자.
@@ -23,6 +36,10 @@ Create React App은 React 배우기에 간편한 환경이다. 그리고 시작�
 설치가 다 되면 vscode를 열고 CLI에 npm start를 치면 development server를 만들게 될 것이다.
 
 기초부터 시작할 것이기 때문에 src에 index.js와 APP.js외엔 전부 지웠다.
+
+> 이 방식이 아니라 그때 그때 필요한 것을 다운로드 할 수 있다.
+>
+> 필요한 것만 다운로드 하기에, 앱자체가 좀 더 가벼워 질 수는 있지만, 필요한 것들 찾는 것과 생각보다 많은 오류에 직면할 수 있다.
 
 ```jsx
 //App.js
@@ -281,7 +298,7 @@ export default App;
 
 우리가 타이핑을 칠 때 마다 console.log("i run all the time") 해당 코드가 실행이 될 것이다.
 
-검색 기능을 만들 것인데, 검색창에 무언가를 썻을 때, 검색 API를 이용하는 것이다.
+이제 우리 목적은 검색 기능을 만드는 것인데, 검색창에 무언가를 썻을 때, 검색 API를 이용하는 것이다.
 
 오직 검색창에 무언가를 입력할 때만 실행시키고 싶고, 다른 것들은 실행 시키고 싶지 않다.
 
@@ -732,7 +749,7 @@ function App() {
 export default App;
 ```
 
-여기서 **중요한 점**
+여기서 **중요한 점!**
 
 **만약 select의 option에 정보들을 넣어주지 않으면 코인의 정보를 가져오는 것이 아니라 text로 받아온다.**
 
@@ -742,7 +759,7 @@ const onSelected = (event) => {
 };
 ```
 
-해당 코드를 가져올 때 text로 받아온다는 것이다.
+해당 코드를 가져올 때 text를 가져온다는 것이다.
 
 ```jsx
 <select name="coinName" onChange={onSelected}>
@@ -831,7 +848,9 @@ export default App;
 
 > **왜 두번을 받아 오나?**
 >
-> setMovies에서 한번 더 setLoading을 불러서 그렇다.
+> setMovies에서 한번 그리고 setLoading 한번 더 불러서 그렇다.
+>
+> 변화가 두번 되니깐 App은 처음 한번 + movies바뀔 때 한 번 + loading 바뀔때 한번 이렇게 총 3번 실행되는 것이다.
 
 이제 Array에 Movie 정보들을 넣어줬으니 map()을 활용하면 되겠다.
 
@@ -1284,7 +1303,7 @@ export default Detail;
 
 문제는 이거라고 생각한다.
 
-undefined상태에서 Movie Component에 넘겨 버리니깐 오류가 나서 오류가 났다고 하면서 페이지 작동이 멈추는 것 같다. 그래서 다음과 같이 해주었다.
+**undefined상태에서 Movie Component에 넘겨 버리니깐** 오류가 났다고 하면서 페이지 작동이 멈추는 것 같다. 그래서 다음과 같이 해주었다.
 
 ```jsx
 import { useEffect, useState } from "react";
@@ -1327,15 +1346,3 @@ export default Detail;
 ```
 
 문제없이 작동한다.
-
-## 5. Publishing
-
-**배포**를 할 것인데, **gh-pages**를 이용할 것이다.
-
-    npm i gh-pages
-
-**gh-pages**는 **결과물을 github pages에 업로드 할 수 있게 해주는 패키지**이다.
-
-즉 내 서버에서 확인할 수 있었던 **홈페이지를 깃허브를 통해서 확인**할 수 있다는 것이다.
-
-설치 후, **가장 먼저 확인할 것은 package.json에 있는 scripts를 확인**하는 것이다.

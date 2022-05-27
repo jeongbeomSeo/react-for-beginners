@@ -2,6 +2,17 @@
 
 여기선, React JS의 기본적인 사용법에 대해서 알아보도록 할 것이다.
 
+- [React JS Basic](#react-js-basic)
+  - [1. SET UP](#1-set-up)
+  - [2. Create Component](#2-create-component)
+  - [3. useState()](#3-usestate)
+    - [3.1 How to utilize usetState(Unit Conversion)](#31-how-to-utilize-usetstateunit-conversion)
+      - [3.1.1 Flip Function](#311-flip-function)
+    - [3.2 Devided and Conquer](#32-devided-and-conquer)
+  - [4. Props(Properties)](#4-propsproperties)
+    - [4.1 React Memo(Memorize)](#41-react-memomemorize)
+    - [4.2 Check PropsTypes](#42-check-propstypes)
+
 ## 1. SET UP
 
 먼저 React를 사용하기 위해서 설치를 하기 보단, 연습하는 시간이니깐 import를 해서 사용할 것이다.
@@ -34,7 +45,7 @@
 
 쉬운 방식만 살펴보지 말고, 어려운 방식을 먼저 보고 React JS의 본질을 이해하고 넘어가자.
 
-**React JS**와 더불어 **React-Dom**을 사용할 것인데, **React Js가 Application을 interactive**하게 만들어주는 **libary**이면, **React-Dom**은 **package**로 **모든 React Element들을 HTML body**에 둘 수 있도록 해준다.
+**React JS**와 더불어 **React-Dom**을 사용할 것인데, **React JS가 Application을 interactive**하게 만들어주는 **libary**면, **React-Dom**은 **package**로 **모든 React Element들을 HTML body**에 둘 수 있도록 해준다.
 
 > react-dom package는 앱의 최상위 레벨에서 사용할 수 있는 DOM에 특화된 메서드와 필요한 경우 React 모델 외부로 나갈 수 있는 해결책을 제공합니다. 대다수 컴포넌트는 이 모듈을 사용할 필요가 없습니다.
 >
@@ -370,7 +381,7 @@ const App = () => (
 ReactDOM.render(<App />, root);
 ```
 
-React 에선 let counter=0; 과 같은 식의 방식 말고 도와줄 기능을 제공해준다.
+React 에선 let counter=0; 과 같은 방식 말고 도와줄 기능을 제공해준다.
 
 바로 **useState()** 이다.
 
@@ -412,7 +423,7 @@ console.log(data);
 <h3>Total clicks: = data[0]</h3>
 ```
 
-함수를 사용하려면 **data[1]**로 헤서 접근해야 한다. 이것은 코드의 복잡성만 높인다.
+함수를 사용하려면 **data[1]** 로 헤서 접근해야 한다. 이것은 코드의 복잡성을 높인다.
 
 그래서 우리는 JavaScript에서 제공하는 기능을 사용할 것이다.
 
@@ -428,7 +439,7 @@ console.log(data);
 
 정리해보자.
 
-useState느 우리에게 배열을 하나 주면서 요소는 이와 같다.
+useState는 우리에게 배열을 하나 주고 요소는 이와 같다.
 
 **첫번째 요소는 우리가 담으려는 data값**이고, **두 번째 요소는 data값을 바꿀 때 사용할 modifier**이다.
 
@@ -506,9 +517,9 @@ State를 바꾸는 방법은 2가지가 있다.
 1. 직접 값을 설정 => setCounter(counter + 1);
 2. 함수를 전달 하기 => setCounter((current) => current + 1);
 
-선택적으로 활용하면 되지만, 되도록이면 2번쨰 방식을 사용하자. 함수를 사용할 상황이 더 많을 것이다.
+선택적으로 활용하면 되지만, 되도록이면 2번째 방식을 사용하자. 함수를 사용할 상황이 더 많을 것이다.
 
-> modifier안에 사용하는 함수의 첫 번쨰 arguemnt는 현재 값이다.
+> modifier안에 사용하는 함수의 첫 번째 arguemnt는 현재 값이다.
 
 ### 3.1 How to utilize usetState(Unit Conversion)
 
@@ -642,7 +653,7 @@ const [minutes, setMinutes] = React.useState(0);
 > Property와 Attribute 차이
 >
 > - **attribute**는 HTML 문서에서의 정적인 속성
-> - property는 HTML DOM에서의 동적인 속성
+> - **property**는 HTML DOM에서의 동적인 속성
 >
 > 참고: [attribute와 property의 차이점](https://velog.io/@kysung95/%EC%A7%A4%EB%A7%89%EA%B8%80-attribute%EC%99%80-property%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90)
 
@@ -1127,7 +1138,7 @@ function Btn({ text, changeValue }) {
 
 ### 4.1 React Memo(Memorize)
 
-버튼이 언제 그려지는지 확인해복 ㅣ위해서 이와 같이 해줬다.
+버튼이 언제 그려지는지 확인해보기 위해서 이와 같이 해줬다.
 
 ```jsx
 function Btn({ text, onClick }) {
@@ -1201,7 +1212,7 @@ function App() {
 
 ### 4.2 Check PropsTypes
 
-앱이 커짐에 따라 **타입 검사를 활용하면 많은 버그(bug)**를 잡을 수 있다.
+앱이 커짐에 따라 **타입 검사를 활용하면 많은 버그(bug)** 를 잡을 수 있다.
 
 자세한 내용은 아래 페이지를 참고하고 이용법을 알아보자.
 
@@ -1219,7 +1230,8 @@ function App() {
 이렇게 받아왔을 때 **Props Type을 검사하지 않으면 오류가 나지 않아서 머가 문제인지 해결하기 어렵다.**
 
 **PropType은 어떤 타입의 Prop을 받고 있는지 체크해준다.**
-<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
 
 해당 코드를 import해주고 다음과 같이 코드를 짜주자.
 
