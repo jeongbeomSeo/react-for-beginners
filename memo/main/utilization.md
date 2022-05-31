@@ -848,6 +848,8 @@ export default App;
 
 > **왜 두번을 받아 오나?**
 >
+> **React의 경우 state가 빠귐예 따라 Re-Render이 일어난다.**
+>
 > setMovies에서 한번 그리고 setLoading 한번 더 불러서 그렇다.
 >
 > 변화가 두번 되니깐 App은 처음 한번 + movies바뀔 때 한 번 + loading 바뀔때 한번 이렇게 총 3번 실행되는 것이다.
