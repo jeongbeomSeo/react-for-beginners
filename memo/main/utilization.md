@@ -1113,10 +1113,10 @@ Movie Compoennt로 가서 anchor를 달아도 되지만 그러면 페이지 전�
 
 우리가 사용할 것은 **Link**이다.
 
-**Link**는 브라우저 새로고침 엇이도 유저를 다른 페이지로 이동시켜주는 컴포넌트이다.
+**Link**는 브라우저 새로고침 없이도 유저를 다른 페이지로 이동시켜주는 컴포넌트이다.
 
 ```jsx
-Movie.js;
+// Movie.js;
 
 import { Link } from "react-router-dom";
 
@@ -1125,7 +1125,7 @@ import { Link } from "react-router-dom";
 </h3>;
 ```
 
-React Router는 Dynamic(동적) URL을 지원하기도 하는데, 이 말은 즉 URL에 변수를 넣을 수 있다는 것이다.
+React Router는 **Dynamic(동적) URL**을 지원하기도 하는데, 이 말은 즉 URL에 변수를 넣을 수 있다는 것이다.
 
 ```jsx
 <Route path="/movie/:id">
@@ -1135,11 +1135,11 @@ React Router는 Dynamic(동적) URL을 지원하기도 하는데, 이 말은 즉
 
 이렇게 하면 이제 Movie Component에서 유저를 **"/movie/(variable)"** 의 경로로 보낼 수 있다.
 
-이렇게 되면, **Movie Compoennt에서는 id가 필요**로 하게 된다.
+이젠 **Movie Compoennt에서 id가 필요**로 하게 된다.
 
-현재 Movie Compoennt에선 Props로 id를 받고 있지 않다.
+현재 Movie Compoennt에선 **Props로 id**를 받고 있지 않다.
 
-Props는 부모 Component가 자식 Component한테 주는 것이라고 말했다.
+**Props**는 부모 Component가 자식 Component한테 주는 것이라고 말했다.
 
 Home()으로 가서 id prop을 건네주자.
 
@@ -1162,7 +1162,7 @@ Home()으로 가서 id prop을 건네주자.
 
 ```jsx
 
-<Link to={`/movie/$(id)`}>{title}</Link>
+<Link to={`/movie/${id}`}>{title}</Link>
 ...
 
 Movie.propTypes = {

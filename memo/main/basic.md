@@ -298,9 +298,9 @@ ReactDOM.render(<Container />, root);
 
     let counter = 0;
 
-이제 이 변수를 JSX에 전달하는 방법을 사용할 것ㅇ이다.
+이제 이 변수를 JSX에 전달하는 방법을 사용할 것이다.
 
-VanillaJS라면 이렇게 해씅ㄹ 것이다.
+VanillaJS라면 이렇게 했을 것이다.
 
     span.innerText = `Total clicks: ${counter}`;
 
@@ -1073,7 +1073,7 @@ function Btn(props) {
 
 props.key 이러한 식으로 계속해서 써야 될텐데 가독성도 좋지 않고, 불편하다.
 
-그래서 개발자들이 활용하는 방법이 있다. Props는 결국 Object이기 때문에 미리 "
+그래서 개발자들이 활용하는 방법이 있다. Props는 결국 Object이기 때문에 미리
 **"{}"** 중괄호를 여는 것이다.
 
 ```jsx
