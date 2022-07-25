@@ -87,7 +87,7 @@ render의 두번째 인자로는 어디 Element에 둘 것인지를 알려줘야
 ```html
 <script>
   const root = document.getElementById("root");
-  const span = React.createElement("span", {id: "react-span", style: {color: "red"}, "Hello, I'm a span");
+  const span = React.createElement("span", {id: "react-span", style: {color: "red"}}, "Hello, I'm a span");
   ReactDOM.render(span, root);
 </script>
 ```
@@ -1095,7 +1095,7 @@ function Btn({ text, big }) {
 }
 ```
 
-만약 Props에 style이나 onClick function을 넣어준다면?
+만약 Props를 style이나 onClick function을 넣어준다면?
 
 ```jsx
     function App() {

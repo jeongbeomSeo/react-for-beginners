@@ -216,7 +216,7 @@ export default App;
 
 이전 챕터에서 봤듯이 위의 button같은 것을 누를 때 마다 render도 같이 console창에 뜬다.
 
-**App()함수 자체를 실행시키기 때**문이다.
+**App()함수 자체를 실행시키기 때문**이다.
 
 물론, render부분을 실행시켜도 component에 문제가 되지 않는 경우도 있겟지만, 그렇지 않은 경우도 있다.
 
